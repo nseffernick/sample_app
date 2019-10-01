@@ -14,4 +14,8 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, 
     length: { minimum: 6 }
+    
+    
+    #<p><label for = "password_confirmation">Confirm Password</label><br/>
+#<%= text_area 'users', 'password_confirmation' %></p>
 end

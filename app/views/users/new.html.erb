@@ -1,3 +1,27 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+
+<%= form_for :user, url: users_path do |f| %>
+    <% if @user.errors.any? %>
+        <% @user.errors.full_messages.each do |msg| %>
+            <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+<% end %>
+
+<p>This is a signup page for new users.</p>
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "name">Name</label>:
+<%= text_field 'users', 'name' %></p>
+
+<p><label for = "email">Email</label>:
+<%= text_field 'users', 'email' %></p>
+
+<p><label for = "password">Password</label><br/>
+<%= text_area 'users', 'password' %></p> 
+
+<%= submit_tag "Sign Up!" %>
+
+<% end %>
